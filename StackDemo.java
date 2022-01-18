@@ -14,26 +14,26 @@ class Stack {
     void push(int x) {
         if(isFull()) {
             System.out.println("Overflow");
-            System.exit(-1);
+            return;
         }
         System.out.println("Inserted " + x);
         arr[++top] = x;
     }
 
-    int pop() {
+    void pop() {
         if(isEmpty()) {
             System.out.println("Underflow");
-            System.exit(-1);            
+            return;          
         }
-        System.out.println("Poped " + peek());
-        return arr[top--];
+        System.out.println("Poped " + arr[top--]);
     }
+
     int peek() {
-        if(!isEmpty())
-            return arr[top];
-        else
-            System.exit(-1);
-        return -1;
+        if(isEmpty()) {
+            System.out.println("Underflow");
+            return -1;
+        }
+        return arr[top];
     }
 
     boolean isEmpty() {
@@ -48,7 +48,8 @@ class Stack {
 
 public class StackDemo {
     public static void main(String[] args) {
-        int size, num;
+        int size, num, choice;
+        boolean status = true;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter size of stack:");
@@ -56,20 +57,28 @@ public class StackDemo {
 
         Stack myStack = new Stack(size);
 
-        System.out.print("Enter no. to be pushed: ");
-        num = sc.nextInt();
-        myStack.push(num);
-
-        System.out.print("Enter no. to be pushed: ");
-        num = sc.nextInt();
-        myStack.push(num);
-
-        myStack.pop();
-
-        System.out.print("Enter no. to be pushed: ");
-        num = sc.nextInt();
-        myStack.push(num);
-
-        System.out.println("Top Element: " + myStack.peek());
+        while(status) {
+            System.out.println("1.Push \n2.Pop \n3.Peek \n4.Exit");
+            System.out.println("Enter choice:");
+            choice = sc.nextInt();
+            
+            switch(choice) {
+                case 1: 
+                        System.out.print("Enter no. to be pushed: ");
+                        num = sc.nextInt();
+                        myStack.push(num);
+                        break;
+                case 2: 
+                        myStack.pop();
+                        break;
+                case 3: 
+                        System.out.println("Top Element: " + myStack.peek());
+                        break;
+                case 4: 
+                        status = false;;
+                        break;
+                default: status = false;
+            }
+        }
     }
 }
