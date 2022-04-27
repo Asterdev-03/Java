@@ -35,12 +35,12 @@ class Stack {
     }
 
     // Peeks at the top value
-    int peek() {
+    void peek() {
         if (isEmpty()) {
             System.out.println("Underflow");
-            return -1;
+            return;
         }
-        return arr[top];
+        System.out.println("Top Element " + arr[top]);
     }
 
     // Checks is stack empty
@@ -81,11 +81,10 @@ public class StackDemo {
                     myStack.pop();
                     break;
                 case 3:
-                    System.out.println("Top Element: " + myStack.peek());
+                    myStack.peek();
                     break;
                 case 4:
                     status = false;
-                    ;
                     break;
                 default:
                     status = false;

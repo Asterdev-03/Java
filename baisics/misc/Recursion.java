@@ -34,8 +34,8 @@ public class Recursion {
         int fact = rec.factorial(num);
         int digitSum = rec.DigitSum(num);
 
-        System.out.println(fact);
-        System.out.println(digitSum);
+        System.out.println("Factorial: " + fact);
+        System.out.println("Sum of Digits: " + digitSum);
     }
 
 }

@@ -5,23 +5,22 @@ import java.util.Arrays;
 
 public class StringSorting {
     public static void main(String[] args) {
-        int words;
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter no of words in the List: ");
-        words = sc.nextInt();
+        int words = sc.nextInt();
 
         // Declaration of a list containing the words
-        String[] wordList = new String[words + 1];
+        String[] wordList = new String[words];
 
-        System.out.println("Enter the words in the List:");
-        for (int i = 0; i <= words; i++)
-            wordList[i] = sc.nextLine();
+        System.out.print("Enter the words in the List:");
+        for (int i = 0; i < words; i++)
+            wordList[i] = sc.next();
 
         // Sorting a String array 
         Arrays.sort(wordList);
 
-        System.out.print("\nSorted List: ");
+        System.out.print("Sorted List: ");
         for (String word : wordList)
             System.out.print(word + " ");
     }

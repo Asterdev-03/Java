@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 // Declaration of class Box
 class Box {
-    int length;
-    int width;
-    int height;
+    private int length;
+    private int width;
+    private int height;
 
     // Initializing the dimensions of the Box object
     Box(int length, int width, int height) {
@@ -16,7 +16,7 @@ class Box {
     }
 
     // Returning the volume of the Box object
-    int volume() {
+    public int volume() {
         return length * width * height;
     }
 }
@@ -33,9 +33,9 @@ public class BoxDemo {
         System.out.print("Enter Heigth: ");
         height = sc.nextInt();
 
-        Box myBox = new Box(length, width, height);
+        Box mybox1 = new Box(length, width, height);
 
-        volume = myBox.volume();
+        volume = mybox1.volume();
 
         System.out.println("Volume of the Box: " + volume);
     }
